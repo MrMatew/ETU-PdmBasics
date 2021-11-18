@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] | Первый электротехнический</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/sidebars.css" />
+
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+</head>
+<body>
+    <nav class="py-2 bg-light border-bottom">
+        <div class="container d-flex flex-wrap">
+            <ul class="nav me-auto">
+                <li class="nav-item"><a href="/" class="nav-link link-dark px-2 active" aria-current="page">Главная</a></li>
+                <li class="nav-item"><a href="#" class="nav-link link-warning px-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Поступающим</a></li>
+                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Студентам</a></li>
+                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Выпускникам</a></li>
+                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Сотрудникам</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Институты и факультеты
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Факультет радиотехники и телекоммуникаций</a></li>
+                        <li><a class="dropdown-item" href="#">Факультет электроники</a></li>
+                        <li><a class="dropdown-item" href="#">Факультет компьютерных технологий и информатики</a></li>
+                        <li><a class="dropdown-item" href="#">Факультет электротехники и автоматики</a></li>
+                        <li><a class="dropdown-item" href="#">Факультет информационно-измерительных и биотехнических систем</a></li>
+                        <li><a class="dropdown-item" href="#">Гуманитарный факультет</a></li>
+                        <li><a class="dropdown-item" href="#">Институт инновационного проектирования и технологического предпринимательства</a></li>
+                        <li><a class="dropdown-item" href="#">Институт фундаментального инженерного образования</a></li>
+                        <li><a class="dropdown-item" href="#">Кафедра русского языка</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-shield-alt" style="color: red;"></i> Военный учебный центр</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav">
+                <partial name="_LoginPartial" />
+            </ul>
+        </div>
+    </nav>
+    <header class="py-3 mb-4 border-bottom">
+        <div class="container d-flex flex-wrap justify-content-center">
+            <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+                <img src="~/img/logo135.svg" style="width: 360px;">
+            </a>
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0" style="padding-top: 20px;">
+                <input type="search" class="form-control" placeholder="Поиск..." aria-label="Поиск">
+            </form>
+        </div>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <form class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Прием заявлений на обучение</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Ваши ФИО</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Терентьев Артём Артурович">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Дата рождения</label>
+                        <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="03.12.1998">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Направление подготовки</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Нажмите чтобы выбрать</option>
+                            <option disabled>Факультет компьютерных технологий и информатики</option>
+                            <option value="1">Информатика и вычислительная техника</option>
+                            <option value="2">Информационные системы и технологии</option>
+                            <option disabled>Факультет радиотехники и телекоммуникаций</option>
+                            <option>Радиотехника. Системы компьютерного зрения</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Скан аттестата об образовании</label>
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-success">Отправить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - СПбГЭТУ "ЛЭТИ" - <a asp-area="" asp-controller="Home" asp-action="Privacy">Политика конфиденциальности</a>
+        </div>
+    </footer>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
